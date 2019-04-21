@@ -159,4 +159,15 @@ public class ChampionTest {
         assertTrue(isThereTop && isThereJungle && isThereMid && isThereBottom);
     }
 
+    @Test // practice03
+    public void shouldBottomCountTwo(){
+        int count = 0;
+        for (int i = 0; i < champions.size(); i++) {
+            if ("바텀".equals(champions.get(i).getPosition())) {
+                count++;
+            }
+        }
+        assertTrue(count == 2);
+    }
+
 }
