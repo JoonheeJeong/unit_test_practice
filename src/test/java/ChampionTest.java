@@ -66,7 +66,7 @@ public class ChampionTest {
         String sampleString = "Player Focus";
         String startString = "Player";
         String endString = "Focus";
-        assertThat(sampleString, anyOf(startsWith(startString), containsString(endString)));
+        assertThat(sampleString, allOf(startsWith(startString), containsString(endString)));
     }
 
     @Test
@@ -123,5 +123,16 @@ public class ChampionTest {
         String champName = filteredChampion.get().getName();
         assertTrue(champName.equals("다리우스"));
         assertThat("다리우스", is(champName));
+    }
+
+    @Test // practice01
+    public void shouldMidChampionIsLeBlanc() {
+        Optional<Champion> filteredChampion = champions.stream()
+                .filter(c -> c.getPosition().equals("미드"))
+                .findFirst();
+        String champName = filteredChampion.get().getName();
+        assertThat("르블랑", is(champName));
+        assertThat("르블랑", is(equalTo(champName)));
+        assertThat("르블랑", equalTo(champName));
     }
 }
