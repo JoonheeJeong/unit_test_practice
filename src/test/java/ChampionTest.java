@@ -135,4 +135,28 @@ public class ChampionTest {
         assertThat("르블랑", is(equalTo(champName)));
         assertThat("르블랑", equalTo(champName));
     }
+
+    @Test // practice02
+    public void shouldBeThereAllPositions() {
+        boolean isThereTop = false;
+        boolean isThereJungle = false;
+        boolean isThereMid = false;
+        boolean isThereBottom = false;
+        for (int i = 0 ; i < champions.size(); i++) {
+            String position = champions.get(i).getPosition();
+            if("탑".equals(position)) {
+                isThereTop = true;
+            } else if("정글".equals(position)) {
+                isThereJungle = true;
+            } else if ("미드".equals(position)) {
+                isThereMid = true;
+            } else if ("바텀".equals(position)) {
+                isThereBottom = true;
+            } else {
+                assertTrue(false);
+            }
+        }
+        assertTrue(isThereTop && isThereJungle && isThereMid && isThereBottom);
+    }
+
 }
